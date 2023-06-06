@@ -10,7 +10,8 @@ const Checkout = () => {
         event.preventDefault();
         const newFruit = {
         fruit: event.target.elements.fruit.value,
-        quantity: event.target.elements.quantity.value
+        quantity: event.target.elements.quantity.value,
+        weight: event.target.elements.weight.value
         };
         setFruitList((prevFruitList) => [...prevFruitList, newFruit]);
         event.target.reset();
@@ -30,6 +31,8 @@ const Checkout = () => {
                         <td><input type="text" id="fruit" name="fruit"/></td>
                         <td>Quantity:</td>
                         <td><input type="number" id="quantity" name="quantity"/></td>
+                        <td>Weight(kg):</td>
+                        <td><input type="number" step="0.01" id="weight" name="weight"/></td>
                         <td><button type="submit">Add Item</button></td>
                     </tr>
                 </tbody>
@@ -40,7 +43,7 @@ const Checkout = () => {
         <ul className="fruit-details">
             {fruitList.map((fruit, index) => (
                 <li key={index}>
-                    Fruit: {fruit.fruit}, Quantity: {fruit.quantity}
+                    Fruit: {fruit.fruit}, Quantity: {fruit.quantity}, Weight: {fruit.weight}
                 </li>
             ))}
         </ul>

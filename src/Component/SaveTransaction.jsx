@@ -14,8 +14,9 @@ const SaveTransaction = () => {
       for(let i = 0; i < fruitList.length; i++){
         const fruitItem = fruitList[i];
         const quantity = fruitItem.quantity;
+        const weight = fruitItem.weight;
         const price = priceList[fruitItem.fruit];
-        calculatedTotal += price * quantity;
+        calculatedTotal += price * quantity * weight;
       }
       setTotal(calculatedTotal);
     }, [fruitList]
